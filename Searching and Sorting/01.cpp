@@ -2,31 +2,29 @@
 
 #include<iostream>
 using namespace std;
-bool search(int arr[],int n,int key){
+int linearsearch(int arr[],int n,int key){
     for(int i=0;i<n;i++){
         if(key==arr[i]){
-            return 1;
+            return i;
         }
     }
-    return 0;
+
+    return -1;
 }
 int main(){
-    int n,key;
-    cout<<"Enter size of array = ";
+    int n;
     cin>>n;
     int arr[n];
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    cout<<"Enter key = ";
+    int key;
     cin>>key;
-    bool found=search(arr,n,key);
-
-    if(found==1){
-        cout<<"Key found";
+    if(linearsearch(arr,n,key)==-1){
+        cout<<"Element not found";
     }
     else{
-        cout<<"Key not found";
+        cout<<"Element found at index "<<linearsearch(arr,n,key);
     }
-
+  
 }
